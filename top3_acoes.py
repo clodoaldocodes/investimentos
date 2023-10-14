@@ -1,6 +1,10 @@
 import yfinance as yf
 import matplotlib.pyplot as plt
 import pandas as pd
+import mplcyberpunk
+
+# Configurando o estilo do gráfico para o estilo "cyberpunk"
+plt.style.use("cyberpunk")
 
 def obter_retornos(tickers, start_date, end_date):
     """
@@ -18,7 +22,7 @@ def obter_retornos(tickers, start_date, end_date):
 
     for ticker in tickers:
         data = yf.download(ticker, start=start_date, end=end_date)
-        retornos[ticker] = data['Adj Close'].pct_change()
+        retornos[ticker] = data["Adj Close"].pct_change()
 
     return retornos
 
@@ -41,9 +45,9 @@ def plotar_top3_retaveis(retornos, top_n=3):
     for ticker in top_n_ativos:
         plt.plot(rentabilidade_total.index, rentabilidade_total[ticker], label=ticker)
 
-    plt.title(f'Top {top_n} Ativos Mais Rentáveis')
-    plt.xlabel('Data')
-    plt.ylabel('Retorno Acumulado')
+    plt.title(f"Top {top_n} Ativos Mais Rentáveis")
+    plt.xlabel("Data")
+    plt.ylabel("Retorno Acumulado")
     plt.legend()
     plt.show()
 
