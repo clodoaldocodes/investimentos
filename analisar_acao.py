@@ -1,5 +1,9 @@
 import yfinance as yf
 import matplotlib.pyplot as plt
+import mplcyberpunk
+
+# Configurando o estilo do gráfico para o estilo "cyberpunk"
+plt.style.use("cyberpunk")
 
 # Escolha o ticker da ação desejada
 ticker = "PETR4.SA"  # Exemplo com ação da Apple, mas você pode substituir pelo ticker desejado
